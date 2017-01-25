@@ -1,0 +1,37 @@
+package doryeongpark.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+import java.sql.*;
+
+@WebServlet("/member/list")
+public class MemberListServlet extends GenericServlet{
+	
+	@Override
+	public void service(ServletRequest request, 
+						ServletResponse response) 
+								throws ServletException, IOException{
+		
+		Connection conn = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		
+		try{
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/doryeongparkdb", "DoryeongPark", "1234");
+			statement = conn.createStatement();
+			resultSet = statement.executeQuery("select mno, mname, email, cre_date from members" +
+											   "order by mno asc");
+			
+			
+		}catch(SQLException se){
+			
+		}
+	}
+}

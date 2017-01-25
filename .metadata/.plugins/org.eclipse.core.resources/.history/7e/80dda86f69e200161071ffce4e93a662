@@ -1,0 +1,40 @@
+package doryeongpark.servlets;
+
+import java.io.IOException;
+import java.sql.DriverManager;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Driver;
+import com.mysql.jdbc.Statement;
+
+@WebServlet("/member/list")
+public class MemberListServlet extends GenericServlet{
+	
+	@Override
+	public void service(ServletRequest request, 
+						ServletResponse response) 
+								throws ServletException, IOException{
+		
+		Connection conn = null;
+		Statement statement = null;
+		
+		try{
+			DriverManager.registerDriver(new Driver());
+			conn = DriverManager.getConnection(
+					"jdbc:mysql://localhost/doryeongparkdb",
+					"DoryeongPark",
+					"1234"
+					);
+			
+			
+		}catch(SQLException se){
+			
+		}
+	}
+}

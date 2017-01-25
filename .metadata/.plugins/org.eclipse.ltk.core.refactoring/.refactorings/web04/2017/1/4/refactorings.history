@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;web04.doryeongpark.servlets&apos; to &apos;doryeongpark.servlets&apos;&#x0D;&#x0A;- Original project: &apos;web04&apos;&#x0D;&#x0A;- Original element: &apos;web04/src/web04.doryeongpark.servlets&apos;&#x0D;&#x0A;- Renamed element: &apos;web04/src/doryeongpark.servlets&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;web04.doryeongpark.servlets&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;web04.doryeongpark.servlets" name="doryeongpark.servlets" qualified="false" references="true" stamp="1485284033138" textual="false" version="1.0"/>
+</session>

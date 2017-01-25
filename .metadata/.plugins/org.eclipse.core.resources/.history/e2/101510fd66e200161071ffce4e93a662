@@ -1,0 +1,16 @@
+package doryeongpark.servlets;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/member/list")
+public class MemberListServlet extends GenericServlet{
+	
+	@Override
+	public void service(ServletRequest request, 
+						ServletResponse response) throws ServletException {
+		
+	}
+}

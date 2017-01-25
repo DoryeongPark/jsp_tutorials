@@ -1,0 +1,24 @@
+package doryeongpark.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+import com.mysql.jdbc.Connection;
+
+@WebServlet("/member/list")
+public class MemberListServlet extends GenericServlet{
+	
+	@Override
+	public void service(ServletRequest request, 
+						ServletResponse response) 
+								throws ServletException, IOException{
+		
+		Connection conn = null;
+		Statement statement = null;
+	}
+}
