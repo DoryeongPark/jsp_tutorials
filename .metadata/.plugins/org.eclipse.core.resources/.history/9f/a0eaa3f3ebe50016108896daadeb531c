@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>web04</display-name>
+  
+  <servlet>
+  	<servlet-name>MemberListServlet</servlet-name>
+  	<servlet-class>doryeongpark.servlets.MemberListServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>MemberAddServlet</servlet-name>
+  	<servlet-class>doryeongpark.servlets.MemberAddServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>MemberUpdateServlet</servlet-name>
+  	<servlet-class>doryeongpark.servlets.MemberUpdateServlet</servlet-class>
+  	<init-param>
+  		<param-name>driver</param-name>
+  		<param-value>com.mysql.jdbc.Driver</param-value>
+  	</init-param>
+  		<param-name>url</param-name>
+  		<param-value>com.mysql.jdbc.Driver</param-value>
+  	<init-param>
+  	</init-param>
+  	<init-param>
+  	</init-param>
+  	<init-param>
+  	</init-param>
+  </servlet>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

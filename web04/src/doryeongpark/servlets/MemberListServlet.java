@@ -39,8 +39,8 @@ public class MemberListServlet extends GenericServlet{
 			out.println("<body><h1>회원목록</h1>");
 			
 			while(resultSet.next()){
-				out.println(resultSet.getInt("mno") + ", " +
-							resultSet.getString("mname") + ", " + 
+				out.println("<a href='update?no=" + resultSet.getInt("mno") + "'>" +
+							resultSet.getString("mname") + "</a>, " + 
 							resultSet.getString("email") + ", " +
 							resultSet.getDate("cre_date") + "<br>");
 			}

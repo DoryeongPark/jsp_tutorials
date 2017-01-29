@@ -1,0 +1,57 @@
+package doryeongpark.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/member/list")
+public class MemberListServlet extends GenericServlet{
+	
+	@Override
+	public void service(ServletRequest request, 
+						ServletResponse response) 
+								throws ServletException, IOException{
+		
+		Connection conn = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		
+		try{
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/doryeongparkdb?autoReconnect=true&useSSL=false", "DoryeongPark", "1234");
+			statement = conn.createStatement();
+			resultSet = statement.executeQuery("select mno, mname, email, cre_date from members " +
+											   "order by mno asc");
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<html><head><title>회원목록</title><head>");
+			out.println("<body><h1>회원목록</h1>");
+			
+			while(resultSet.next()){
+				out.println("<a href='update?no=" + resultSet.getInt("mno") + ", " +
+							resultSet.getString("mname") + "</a>, " + 
+							resultSet.getString("email") + ", " +
+							resultSet.getDate("cre_date") + "<br>");
+			}
+			
+		}catch(SQLException se){
+			
+			
+		}finally{
+			try { if(resultSet != null) resultSet.close(); }catch(Exception e){}
+			try { if(statement != null) statement.close(); }catch(Exception e){}
+			try { if(conn != null) conn.close(); }catch(Exception e){}
+		}
+	}
+}
